@@ -37,7 +37,7 @@ public class LibroController {
 
 @GetMapping("/libro/{id}")
     public ResponseEntity<Libro> getLibro(@PathVariable Long id){
-      return new ResponseEntity<>(libroService.get(), HttpStatus.OK);
+      return new ResponseEntity<>(libroService.get(id), HttpStatus.OK);
 }
 
 @PutMapping("/libro/{id}")
