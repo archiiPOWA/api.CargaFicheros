@@ -52,6 +52,11 @@ public class LibroServiceImpl implements LibroService {
     public Libro update(Long id, Libro libro, MultipartFile file) throws IOException{
         libro.setId(id); //primero le paso el id
         String nombre = uploadService.saveUpload(file); // cargo la variable nombre con el archivo guardado
+        //validacion para eliminar el archivo modificado
+        Libro libro1 = libroRepository.findById().get(); //obtengo su id
+        if(!libro.getNombre().equals(nombre)){ //si libro tiene distintos nombres
+            uploadService.deleteUpload(libro1.getNombre()); //borra el libro que fue modificado
+        }
         libro.setNombre(nombre); // modificar el nombre
         return libroRepository.save(libro);
     }
