@@ -4,7 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -14,7 +13,7 @@ import java.util.Objects;
 
 
 @Service
-public class UploadServices {
+public class UploadService {
     //En este servicio estan implementados los metodos para Guardar y Eliminar
 
     //METODO PARA GUARDAR
